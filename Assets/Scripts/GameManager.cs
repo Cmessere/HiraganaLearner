@@ -14,17 +14,54 @@ public class GameManager : MonoBehaviour
         GameManagerStatic.gameManager = this;
     }
 
-    public TextMeshProUGUI currentLetter;
+    public TextMeshProUGUI japaneeseLetter;
+    public TextMeshProUGUI phoneticLetter;
 
 
-    private string[] wovels = new string[] { "あ", "い", "う", "え", "お" };
+    private string[] japaneeseWovels = new string[] { "あ", "い", "う", "え", "お" };
+    private string[] phoneticWovels = new string[] { "a", "i", "u", "e", "o" };
+
+    private Codex a = new Codex("あ", "a");
+    private Codex i = new Codex("い", "i");
+    private Codex u = new Codex("う", "u");
+    private Codex e = new Codex("え", "e");
+    private Codex o = new Codex("お", "o");
+
+    private Codex[] codexVowels = new Codex[] { new Codex("あ", "a"), new Codex("い", "i"), new Codex("う", "u"), new Codex("え", "e"), new Codex("お", "o")};
     void Start()
     {
-
+        foreach(Codex el in codexVowels) { 
+            Debug.Log("Risultato:" + el.ToString());
+        }
     }
 
     public void changeLetter()
     {
-        currentLetter.text = wovels[Random.Range(0, 5)];
+        int randomNumber = Random.Range(0, 5);
+        japaneeseLetter.text = japaneeseWovels[randomNumber];
+        phoneticLetter.text = phoneticWovels[randomNumber];
+    }
+}
+
+public class Codex
+{
+    // Constructor that takes no arguments:
+    public Codex()
+    {
+        Letter = "";
+        Sound = "";
+    }
+
+    public Codex(string letter, string sound)
+    {
+        Letter = letter;
+        Sound = sound;
+    }
+    public string Letter { get; }
+    public string Sound { get; }
+
+    public override string ToString()
+    {
+        return Letter +" "+ Sound;
     }
 }
