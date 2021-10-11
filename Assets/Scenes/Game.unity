@@ -1382,6 +1382,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1081790297}
     m_Modifications:
+    - target: {fileID: 6684813397851384433, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
+      propertyPath: m_fontSize
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684813397851384433, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684813397851384433, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684813397851384433, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684813397851384433, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684813397851384434, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -6.4591064
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684813397851384434, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.4647827
+      objectReference: {fileID: 0}
     - target: {fileID: 6684813397851384435, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
       propertyPath: m_Name
       value: JapanTMPro
@@ -1416,11 +1444,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7453114427601669164, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 430.18
+      value: 524.6659
       objectReference: {fileID: 0}
     - target: {fileID: 7453114427601669164, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 430.56
+      value: 525.1294
       objectReference: {fileID: 0}
     - target: {fileID: 7453114427601669164, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1456,7 +1484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7453114427601669164, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 129
+      value: 182
       objectReference: {fileID: 0}
     - target: {fileID: 7453114427601669164, guid: 7ea7720218d3fd545bb6dc9ae5fdffe5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
