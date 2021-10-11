@@ -892,10 +892,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   japaneeseLetter: {fileID: 630912254}
-  phoneticLetter1: {fileID: 479954490}
-  phoneticLetter2: {fileID: 1098587657}
-  phoneticLetter3: {fileID: 934802006}
+  leftLetter: {fileID: 479954490}
+  middleLetter: {fileID: 1098587657}
+  rightLetter: {fileID: 934802006}
   choiceResult: {fileID: 773366848}
+  correctAttemptsText: {fileID: 1663717095}
+  totalAttemptsText: {fileID: 2125929395}
   GameCanvas: {fileID: 1081790296}
   PauseCanvas: {fileID: 1696208392}
 --- !u!4 &873726952
@@ -1584,7 +1586,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 873726951}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: checkChoice
+        m_MethodName: CheckChoice
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2222,7 +2224,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 873726951}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: checkChoice
+        m_MethodName: CheckChoice
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2622,7 +2624,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 873726951}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: checkChoice
+        m_MethodName: CheckChoice
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

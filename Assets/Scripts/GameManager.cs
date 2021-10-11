@@ -29,41 +29,43 @@ public class GameManager : MonoBehaviour
     private string correctPhonem;
     private int totalAttempts;
     private int correctAttempts;
+    private int lastRandomLetter;
 
     private Codex[] codexVowels = new Codex[] { new Codex("あ", "a"), new Codex("い", "i"), new Codex("う", "u"), new Codex("え", "e"), new Codex("お", "o")};
     void Start()
     {
         totalAttempts = 0;
         correctAttempts = 0;
-
+        lastRandomLetter = 0;
         Time.timeScale = 1f;
         
         totalAttemptsText.text = totalAttempts.ToString();
         correctAttemptsText.text = correctAttempts.ToString();
-        changeLetter();
+        ChangeLetter();
     }
 
-    public void changeLetter()
+    public void ChangeLetter()
     {
-        int correctAnswer = Random.Range(0, 5);
-        int wrongAnswer1 = Random.Range(0, 5);
-        int wrongAnswer2 = Random.Range(0, 5);
+        int correctAnswer = GetRandomCorrectAnswer();
 
         int randomButton = Random.Range(0, 3);
         japaneeseLetter.text = codexVowels[correctAnswer].Letter;
         correctPhonem = codexVowels[correctAnswer].Sound;
 
+        int wrongAnswer1 = Random.Range(0, 5);
+        int wrongAnswer2 = Random.Range(0, 5);
+
         while (wrongAnswer1 == correctAnswer || wrongAnswer1 == wrongAnswer2)
         {
             wrongAnswer1 = Random.Range(0, 5);
         }
-        
-        while(wrongAnswer2 == correctAnswer || wrongAnswer2 == wrongAnswer1)
+
+        while (wrongAnswer2 == correctAnswer || wrongAnswer2 == wrongAnswer1)
         {
             wrongAnswer2 = Random.Range(0, 5);
         }
 
-        Debug.Log(correctAnswer + " " + wrongAnswer1 + " " + wrongAnswer2);
+
         switch (randomButton)
         {
             case 0:
@@ -89,7 +91,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void checkChoice()
+    private int GetRandomCorrectAnswer()
+    {
+        int correctAnswer = Random.Range(0, 5);
+
+        while (correctAnswer == lastRandomLetter)
+        {
+            correctAnswer = Random.Range(0, 5);
+        }
+        lastRandomLetter = correctAnswer;
+        return correctAnswer;
+    }
+
+    public void CheckChoice()
     {
         var go = EventSystem.current.currentSelectedGameObject;
         string buttonText = go.GetComponentInChildren<TextMeshProUGUI>().text;
@@ -109,7 +123,7 @@ public class GameManager : MonoBehaviour
 
         totalAttemptsText.text = totalAttempts.ToString();
         correctAttemptsText.text = correctAttempts.ToString();
-        changeLetter();
+        ChangeLetter();
     }
 
 
