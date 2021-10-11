@@ -78,9 +78,8 @@ public class GameManager : MonoBehaviour
     public void checkChoice()
     {
         var go = EventSystem.current.currentSelectedGameObject;
-        Debug.Log("go" + go);
         string buttonText = go.GetComponentInChildren<TextMeshProUGUI>().text;
-        Debug.Log("buttonText" + buttonText);
+
         if(buttonText == correctPhonem)
         {
             Debug.Log("Correct");
