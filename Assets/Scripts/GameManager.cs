@@ -16,19 +16,30 @@ public class GameManager : MonoBehaviour
     }
 
     public TextMeshProUGUI japaneeseLetter;
-    public TextMeshProUGUI phoneticLetter1;
-    public TextMeshProUGUI phoneticLetter2;
-    public TextMeshProUGUI phoneticLetter3;
+    public TextMeshProUGUI leftLetter;
+    public TextMeshProUGUI middleLetter;
+    public TextMeshProUGUI rightLetter;
     public TextMeshProUGUI choiceResult;
+    public TextMeshProUGUI correctAttemptsText;
+    public TextMeshProUGUI totalAttemptsText;
+
     public Canvas GameCanvas;
     public Canvas PauseCanvas;
 
     private string correctPhonem;
+    private int totalAttempts;
+    private int correctAttempts;
 
     private Codex[] codexVowels = new Codex[] { new Codex("あ", "a"), new Codex("い", "i"), new Codex("う", "u"), new Codex("え", "e"), new Codex("お", "o")};
     void Start()
     {
+        totalAttempts = 0;
+        correctAttempts = 0;
+
         Time.timeScale = 1f;
+        
+        totalAttemptsText.text = totalAttempts.ToString();
+        correctAttemptsText.text = correctAttempts.ToString();
         changeLetter();
     }
 
@@ -56,21 +67,21 @@ public class GameManager : MonoBehaviour
         switch (randomButton)
         {
             case 0:
-                phoneticLetter1.text = codexVowels[correctAnswer].Sound;
-                phoneticLetter2.text = codexVowels[wrongAnswer1].Sound;
-                phoneticLetter3.text = codexVowels[wrongAnswer2].Sound;
+                leftLetter.text = codexVowels[correctAnswer].Sound;
+                middleLetter.text = codexVowels[wrongAnswer1].Sound;
+                rightLetter.text = codexVowels[wrongAnswer2].Sound;
                 break;
 
             case 1:
-                phoneticLetter1.text = codexVowels[wrongAnswer1].Sound;
-                phoneticLetter2.text = codexVowels[correctAnswer].Sound;
-                phoneticLetter3.text = codexVowels[wrongAnswer2].Sound;
+                leftLetter.text = codexVowels[wrongAnswer1].Sound;
+                middleLetter.text = codexVowels[correctAnswer].Sound;
+                rightLetter.text = codexVowels[wrongAnswer2].Sound;
                 break;
 
             case 2:
-                phoneticLetter1.text = codexVowels[wrongAnswer1].Sound;
-                phoneticLetter2.text = codexVowels[wrongAnswer2].Sound;
-                phoneticLetter3.text = codexVowels[correctAnswer].Sound;
+                leftLetter.text = codexVowels[wrongAnswer1].Sound;
+                middleLetter.text = codexVowels[wrongAnswer2].Sound;
+                rightLetter.text = codexVowels[correctAnswer].Sound;
                 break;
 
             default:
@@ -82,11 +93,13 @@ public class GameManager : MonoBehaviour
     {
         var go = EventSystem.current.currentSelectedGameObject;
         string buttonText = go.GetComponentInChildren<TextMeshProUGUI>().text;
+        totalAttempts++;
 
-        if(buttonText == correctPhonem)
+        if (buttonText == correctPhonem)
         {
             Debug.Log("Correct");
             choiceResult.text = "Correct!";
+            correctAttempts++;
         }
         else
         {
@@ -94,6 +107,8 @@ public class GameManager : MonoBehaviour
             choiceResult.text = "Wrong...";
         }
 
+        totalAttemptsText.text = totalAttempts.ToString();
+        correctAttemptsText.text = correctAttempts.ToString();
         changeLetter();
     }
 
