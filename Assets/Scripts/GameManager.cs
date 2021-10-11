@@ -20,12 +20,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI phoneticLetter2;
     public TextMeshProUGUI phoneticLetter3;
     public TextMeshProUGUI choiceResult;
+    public Canvas GameCanvas;
+    public Canvas PauseCanvas;
 
     private string correctPhonem;
 
     private Codex[] codexVowels = new Codex[] { new Codex("あ", "a"), new Codex("い", "i"), new Codex("う", "u"), new Codex("え", "e"), new Codex("お", "o")};
     void Start()
     {
+        Time.timeScale = 1f;
         changeLetter();
     }
 
@@ -93,6 +96,19 @@ public class GameManager : MonoBehaviour
 
         changeLetter();
     }
+
+
+    public void PauseGame()
+    {
+        PauseCanvas.gameObject.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    
+    public void ResumeGame()
+    {
+        PauseCanvas.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+    }
 }
 
 
@@ -118,4 +134,3 @@ public class Codex
         return Letter +" "+ Sound;
     }
 }
-
